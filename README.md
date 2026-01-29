@@ -1,73 +1,155 @@
-# Welcome to your Lovable project
+# Crypto Ticker Web Component
 
-## Project info
+A lightweight, framework-agnostic web component that displays real-time cryptocurrency prices with live updates, price direction indicators, and theme support.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
 
-## How can I edit this code?
+- Live cryptocurrency price updates from CoinDesk/Coinbase API
+- Support for 400+ cryptocurrencies (BTC, ETH, SOL, DOGE, USDT, and more)
+- Dynamic token icons loaded from CDN with fallback support
+- Price direction indicators (up/down arrows with animations)
+- Dark and light theme support
+- Configurable refresh intervals
+- Zero dependencies (vanilla JavaScript)
+- Shadow DOM encapsulation for style isolation
+- Framework-agnostic - works with any website or framework
 
-There are several ways of editing your application.
+## Installation
 
-**Use Lovable**
+Install dependencies using your preferred package manager:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+```bash
+# Using npm
+npm install
 
-Changes made via Lovable will be committed automatically to this repo.
+# Using pnpm
+pnpm install
 
-**Use your preferred IDE**
+# Using bun
+bun install
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Development
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Start the development server:
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080` (or the next available port).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Build
 
-**Use GitHub Codespaces**
+Build the project for production:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run build
+```
 
-## What technologies are used for this project?
+The built files will be generated in the `dist` directory.
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## Using the Web Component
+
+### 1. Include the Script
+
+Add the script to your HTML:
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/AlexJurik/bitcoin-live-widget@main/public/crypto-ticker.js"></script>
+```
+
+### 2. Add the Component
+
+Use the component anywhere in your HTML:
+
+```html
+<crypto-ticker></crypto-ticker>
+```
+
+### 3. Configuration
+
+Customize the component with attributes:
+
+```html
+<crypto-ticker
+  token="BTC"
+  currency="USD"
+  refresh-interval="60"
+  theme="dark"
+></crypto-ticker>
+```
+
+## Available Attributes
+
+| Attribute | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `token` | string | `"BTC"` | Cryptocurrency token symbol (BTC, ETH, SOL, etc.) |
+| `currency` | string | `"USD"` | Display currency (USD, EUR, GBP, etc.) |
+| `refresh-interval` | number | `30` | Update interval in seconds |
+| `theme` | string | `"dark"` | Visual theme ("dark" or "light") |
+
+## Examples
+
+### Bitcoin with default settings
+```html
+<crypto-ticker></crypto-ticker>
+```
+
+### Ethereum with light theme
+```html
+<crypto-ticker token="ETH" theme="light"></crypto-ticker>
+```
+
+### Solana with custom refresh interval
+```html
+<crypto-ticker token="SOL" refresh-interval="60"></crypto-ticker>
+```
+
+### Multiple cryptocurrencies
+```html
+<crypto-ticker token="BTC"></crypto-ticker>
+<crypto-ticker token="ETH"></crypto-ticker>
+<crypto-ticker token="DOGE"></crypto-ticker>
+```
+
+## Technologies
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Vite** - Fast build tool and development server
+- **TypeScript** - Type-safe JavaScript
+- **React** - UI library for the demo page
+- **shadcn/ui** - UI component library
+- **Tailwind CSS** - Utility-first CSS framework
+- **Vanilla JavaScript** - For the web component (zero dependencies)
 
-## How can I deploy this project?
+## API
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+The component uses the CoinDesk API to fetch real-time cryptocurrency prices:
 
-## Can I connect a custom domain to my Lovable project?
+- **Endpoint**: `https://data-api.coindesk.com/spot/v1/latest/tick`
+- **Market**: Coinbase
+- **No API key required**
 
-Yes, you can!
+## Browser Support
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+The web component works in all modern browsers that support:
+- Custom Elements (Web Components)
+- Shadow DOM
+- ES6+ JavaScript
+- Fetch API
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## License
+
+MIT
+
+## Author
+
+Alex Jurik - https://jurik.dev
