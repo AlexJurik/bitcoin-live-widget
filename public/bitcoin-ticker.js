@@ -60,7 +60,7 @@ class BitcoinTicker extends HTMLElement {
     try {
       const instrument = `BTC-${this.currency}`;
       const response = await fetch(
-        `https://data-api.coindesk.com/spot/v1/latest/tick?market=coinbase&instruments=${instrument}&apply_mapping=true`
+        `https://data-api.coindesk.com/index/cc/v1/latest/tick?market=cadli&instruments=${instrument}&apply_mapping=true`
       );
       if (!response.ok) throw new Error('Failed to fetch');
       
