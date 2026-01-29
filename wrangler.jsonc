@@ -1,0 +1,5 @@
+{
+  "name": "crypto-live-widget",
+  "compatibility_date": "2026-01-29",
+  "main": "src/main.tsx",
+}
