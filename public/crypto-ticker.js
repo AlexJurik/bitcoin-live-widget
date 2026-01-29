@@ -9,6 +9,7 @@
  * - refresh-interval: Update interval in seconds (default: 30)
  * - token: Display token (default: "BTC")
  * - currency: Display currency (default: "USD")
+ * - market: Display market (default: "coinbase")
  * - theme: "dark" or "light" (default: "dark")
  *
  * Example:
@@ -39,6 +40,10 @@ class CryptoTicker extends HTMLElement {
 
   get currency() {
     return this.getAttribute("currency") || "USD";
+  }
+
+  get market() {
+    return this.getAttribute("market") || "coinbase";
   }
 
   get theme() {
@@ -72,7 +77,7 @@ class CryptoTicker extends HTMLElement {
     try {
       const instrument = `${this.token}-${this.currency}`;
       const response = await fetch(
-        `https://data-api.coindesk.com/spot/v1/latest/tick?market=coinbase&instruments=${instrument}&apply_mapping=true`,
+        `https://data-api.coindesk.com/spot/v1/latest/tick?market=${this.market}&instruments=${instrument}&apply_mapping=true`,
       );
       if (!response.ok) throw new Error("Failed to fetch");
 

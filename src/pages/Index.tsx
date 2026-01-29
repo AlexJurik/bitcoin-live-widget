@@ -6,7 +6,6 @@ const Index = () => {
   const [copied, setCopied] = useState<string | null>(null);
 
   useEffect(() => {
-    // Dynamically load the crypto ticker script
     const script = document.createElement("script");
     script.src = "/crypto-ticker.js";
     script.async = true;
@@ -26,8 +25,10 @@ const Index = () => {
   const scriptTag = `<script src="https://cdn.jsdelivr.net/gh/AlexJurik/bitcoin-live-widget@main/public/crypto-ticker.js"></script>`;
   const basicUsage = `<crypto-ticker></crypto-ticker>`;
   const advancedUsage = `<crypto-ticker
-  refresh-interval="60"
+  refresh-interval="5"
+  token="ETH
   currency="USD"
+  market="kraken"
   theme="dark"
 ></crypto-ticker>`;
 
@@ -68,8 +69,8 @@ const Index = () => {
                 className="flex flex-wrap justify-center gap-4"
                 dangerouslySetInnerHTML={{
                   __html: `
-                    <crypto-ticker theme="dark" token="BTC" refresh-interval="3"></crypto-ticker>
-                    <crypto-ticker theme="light" token="ETH" currency="EUR" refresh-interval="3"></crypto-ticker>
+                    <crypto-ticker theme="dark" token="BTC" refresh-interval="3" market="coinbase"></crypto-ticker>
+                    <crypto-ticker theme="light" token="ETH" currency="EUR" refresh-interval="3" market="binance"></crypto-ticker>
                   `,
                 }}
               />
@@ -248,6 +249,18 @@ const Index = () => {
                     </td>
                     <td className="px-4 py-3 text-sm text-muted-foreground">
                       Display currency (USD, EUR, GBP)
+                    </td>
+                  </tr>
+                  <tr className="bg-card">
+                    <td className="px-4 py-3 font-mono text-sm text-primary">
+                      market
+                    </td>
+                    <td className="px-4 py-3 text-sm text-muted-foreground">
+                      coinbase
+                    </td>
+                    <td className="px-4 py-3 text-sm text-muted-foreground">
+                      The market to retrieve data from (coinbase, binance,
+                      kraken)
                     </td>
                   </tr>
                   <tr className="bg-card">
