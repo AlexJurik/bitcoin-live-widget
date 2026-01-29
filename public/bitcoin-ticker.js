@@ -58,11 +58,15 @@ class BitcoinTicker extends HTMLElement {
 
   async fetchPrice() {
     try {
-      const response = await fetch('https://api.coindesk.com/v1/bpi/currentprice.json');
+      const instrument = `BTC-${this.currency}`;
+      const response = await fetch(
+        `https://data-api.coindesk.com/spot/v1/latest/tick?market=coinbase&instruments=${instrument}&apply_mapping=true`
+      );
       if (!response.ok) throw new Error('Failed to fetch');
       
       const data = await response.json();
-      const newPrice = data.bpi[this.currency]?.rate_float;
+      const tickData = data.Data?.[instrument];
+      const newPrice = tickData?.VALUE;
       
       if (newPrice) {
         this.previousPrice = this.currentPrice;
