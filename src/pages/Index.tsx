@@ -69,7 +69,7 @@ const Index = () => {
                 dangerouslySetInnerHTML={{
                   __html: `
                     <crypto-ticker theme="dark" token="BTC" refresh-interval="3"></crypto-ticker>
-                    <crypto-ticker theme="light" token="ETH" refresh-interval="3"></crypto-ticker>
+                    <crypto-ticker theme="light" token="ETH" currency="EUR" refresh-interval="3"></crypto-ticker>
                   `,
                 }}
               />

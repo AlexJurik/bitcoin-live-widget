@@ -103,12 +103,18 @@ class CryptoTicker extends HTMLElement {
   }
 
   formatPrice(price) {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: this.currency,
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(price);
+    let formattedPrice;
+    try {
+      formattedPrice = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: this.currency,
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(price);
+    } catch (error) {
+      formattedPrice = price.toFixed(2);
+    }
+    return formattedPrice;
   }
 
   getStyles() {
@@ -141,7 +147,6 @@ class CryptoTicker extends HTMLElement {
       }
 
       .ticker:hover {
-        transform: translateY(-1px);
         box-shadow: ${
           isDark
             ? "0 6px 24px rgba(0, 0, 0, 0.5), 0 0 50px rgba(100, 116, 139, 0.15)"
@@ -276,11 +281,11 @@ class CryptoTicker extends HTMLElement {
     if (priceEl && this.currentPrice) {
       priceEl.textContent = this.formatPrice(this.currentPrice);
       priceEl.classList.remove("loading");
+      priceEl.classList.remove("error");
       priceEl.classList.add("updating");
 
       setTimeout(() => priceEl.classList.remove("updating"), 300);
 
-      // Update or create direction indicator
       let directionEl = this.shadowRoot.querySelector(".direction");
       if (this.priceDirection) {
         if (!directionEl) {
@@ -304,12 +309,10 @@ class CryptoTicker extends HTMLElement {
   }
 }
 
-// Register the custom element
 if (!customElements.get("crypto-ticker")) {
   customElements.define("crypto-ticker", CryptoTicker);
 }
 
-// Export for module usage
 if (typeof module !== "undefined" && module.exports) {
   module.exports = CryptoTicker;
 }
