@@ -295,22 +295,71 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border">
         <div className="container mx-auto px-6 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-muted-foreground">
-              Powered by{" "}
-              <a
-                href="https://www.coindesk.com/price/bitcoin"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline inline-flex items-center gap-1"
-              >
-                CoinDesk API
-                <ExternalLink className="w-3 h-3" />
-              </a>
-            </p>
-            <p className="text-sm text-muted-foreground">
-              No API key required • Free to use
-            </p>
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-muted-foreground">
+              <p>
+                Powered by{" "}
+                <a
+                  href="https://www.coindesk.com/price/bitcoin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline inline-flex items-center gap-1"
+                >
+                  CoinDesk API
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </p>
+              <span className="hidden md:inline">•</span>
+              <p>No API key required • Free to use</p>
+            </div>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-muted-foreground">
+              <p>
+                Created by cooperation{" "}
+                <a
+                  href="https://jurik.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline inline-flex items-center gap-1"
+                >
+                  Alexander Jurik
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+                ,{" "}
+                <a
+                  href="https://lovable.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline inline-flex items-center gap-1"
+                >
+                  Lovable
+                  <ExternalLink className="w-3 h-3" />
+                </a>{" "}
+                and{" "}
+                <a
+                  href="https://claude.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline inline-flex items-center gap-1"
+                >
+                  Claude
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </p>
+              <span className="hidden md:inline">•</span>
+              <p>
+                <a
+                  href="https://github.com/AlexJurik/bitcoin-live-widget"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline inline-flex items-center gap-1"
+                >
+                  GitHub
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </p>
+              <span className="hidden md:inline">•</span>
+              <p>MIT License</p>
+            </div>
           </div>
         </div>
       </footer>
