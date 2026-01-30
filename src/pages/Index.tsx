@@ -26,7 +26,7 @@ const Index = () => {
   const basicUsage = `<crypto-ticker></crypto-ticker>`;
   const advancedUsage = `<crypto-ticker
   refresh-interval="5"
-  token="ETH
+  token="ETH"
   currency="USD"
   market="kraken"
   theme="dark"
