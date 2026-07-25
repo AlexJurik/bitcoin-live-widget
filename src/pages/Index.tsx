@@ -28,7 +28,6 @@ const Index = () => {
   refresh-interval="5"
   token="ETH"
   currency="USD"
-  market="kraken"
   theme="dark"
 ></crypto-ticker>`;
 
@@ -69,8 +68,8 @@ const Index = () => {
                 className="flex flex-wrap justify-center gap-4"
                 dangerouslySetInnerHTML={{
                   __html: `
-                    <crypto-ticker theme="dark" token="BTC" refresh-interval="3" market="coinbase"></crypto-ticker>
-                    <crypto-ticker theme="light" token="ETH" currency="EUR" refresh-interval="3" market="binance"></crypto-ticker>
+                    <crypto-ticker theme="dark" token="BTC" refresh-interval="3"></crypto-ticker>
+                    <crypto-ticker theme="light" token="ETH" currency="EUR" refresh-interval="3"></crypto-ticker>
                   `,
                 }}
               />
@@ -253,18 +252,6 @@ const Index = () => {
                   </tr>
                   <tr className="bg-card">
                     <td className="px-4 py-3 font-mono text-sm text-primary">
-                      market
-                    </td>
-                    <td className="px-4 py-3 text-sm text-muted-foreground">
-                      coinbase
-                    </td>
-                    <td className="px-4 py-3 text-sm text-muted-foreground">
-                      The market to retrieve data from (coinbase, binance,
-                      kraken)
-                    </td>
-                  </tr>
-                  <tr className="bg-card">
-                    <td className="px-4 py-3 font-mono text-sm text-primary">
                       refresh-interval
                     </td>
                     <td className="px-4 py-3 text-sm text-muted-foreground">
@@ -300,17 +287,17 @@ const Index = () => {
               <p>
                 Powered by{" "}
                 <a
-                  href="https://www.coindesk.com/price/bitcoin"
+                  href="https://docs.cdp.coinbase.com/exchange/introduction/welcome"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary hover:underline inline-flex items-center gap-1"
                 >
-                  CoinDesk API
+                  Coinbase Exchange API
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </p>
               <span className="hidden md:inline">•</span>
-              <p>No API key required • Free to use</p>
+              <p>Public market data • No API key required</p>
             </div>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-muted-foreground">
               <p>

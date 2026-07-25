@@ -4,7 +4,7 @@ A lightweight, framework-agnostic web component that displays real-time cryptocu
 
 ## Features
 
-- Live cryptocurrency price updates from CoinDesk/Coinbase API
+- Live cryptocurrency price updates from the Coinbase Exchange API
 - Support for 400+ cryptocurrencies (BTC, ETH, SOL, DOGE, USDT, and more)
 - Dynamic token icons loaded from CDN with fallback support
 - Price direction indicators (up/down arrows with animations)
@@ -132,10 +132,10 @@ This project is built with:
 
 ## API
 
-The component uses the CoinDesk API to fetch real-time cryptocurrency prices:
+The component uses the public Coinbase Exchange API to fetch real-time cryptocurrency prices:
 
-- **Endpoint**: `https://data-api.coindesk.com/spot/v1/latest/tick`
-- **Market**: Coinbase
+- **Endpoint**: `https://api.exchange.coinbase.com/products/{product_id}/ticker`
+- **Market**: Coinbase Exchange
 - **No API key required**
 
 ## Browser Support
